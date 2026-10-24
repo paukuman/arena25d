@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Arena 2.5D</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0a1420; overflow: hidden;
+    font-family: system-ui, sans-serif; color: #e8eef6; touch-action: none; user-select: none; -webkit-user-select: none; }
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+  #hud { position: fixed; top: calc(8px + env(safe-area-inset-top, 0px)); left: 12px; right: 12px;
+    display: flex; justify-content: space-between; font-weight: 600; text-shadow: 0 1px 3px #000; pointer-events: none; }
+  #stickzone { position: fixed; left: 0; top: 0; bottom: 0; width: 50%; }
+  #stick { position: fixed; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%;
+    background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.3); display: none; pointer-events: none; }
+  #knob { position: absolute; left: 50%; top: 50%; width: 46px; height: 46px; margin: -23px 0 0 -23px;
+    border-radius: 50%; background: rgba(255,255,255,.55); }
+  #atk { position: fixed; right: calc(28px + env(safe-area-inset-right, 0px)); bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+    width: 96px; height: 96px; border-radius: 50%; border: 3px solid rgba(255,255,255,.5);
+    background: rgba(244,191,86,.55); color: #fff; font-size: 18px; font-weight: 700; }
+  #over { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; flex-direction: column;
+    gap: 14px; background: rgba(5,10,18,.72); font-size: 28px; font-weight: 700; }
+  #over button { font-size: 18px; padding: 10px 28px; border-radius: 10px; border: 0; background: #f4bf56; color: #1a1205; font-weight: 700; }
+  #err { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 24px; text-align: center; background: #0a1420; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud"><span id="hp">HP 10</span><span id="wave">Wave 1</span><span id="score">Skor 0</span></div>
+<div id="stickzone"></div>
+<div id="stick"><div id="knob"></div></div>
+<button id="atk">SERANG</button>
+<div id="over"><div>Kalah!</div><div id="final" style="font-size:18px;font-weight:500"></div><button id="again">Main lagi</button></div>
+<div id="err"></div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

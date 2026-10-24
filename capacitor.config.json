@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.arena25d",
+  "appName": "Arena 2.5D",
+  "webDir": "www",
+  "server": { "androidScheme": "https" }
+}
